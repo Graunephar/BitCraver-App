@@ -9,32 +9,22 @@
 
     <com.izikode.izilib.veinview.VeinView
         android:id="@+id/content_view"
-        android:layout_width="315dp"
-        android:layout_height="466dp"
+        android:layout_width="414dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/refresh_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/content_view"
+        android:layout_width="33dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:drawable/stat_notify_sync"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/test_textview"
-        android:layout_width="352dp"
-        android:layout_height="92dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content_view" />
+        app:layout_constraintTop_toTopOf="@+id/content_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

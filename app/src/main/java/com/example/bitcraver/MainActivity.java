@@ -3,6 +3,7 @@ package com.example.bitcraver;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -10,6 +11,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bitcraver.network.HTMLBuilder;
 import com.example.bitcraver.network.HttpRequestHandler;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private HttpRequestHandler mRequestHandler;
 
     private VeinView mWebView;
+    private Context mContext = this;
 
 
     @Override
@@ -35,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button updatebutton = findViewById(R.id.refresh_button);
-        final TextView testView = findViewById(R.id.test_textview);
         mWebView = findViewById(R.id.content_view);
 
         mRequestHandler = new HttpRequestHandler(this);
@@ -48,20 +50,17 @@ public class MainActivity extends AppCompatActivity {
                 mRequestHandler.initiateRequest(new ResponseCallback() {
                     @Override
                     public void onSuccess(String data) {
-                        String test = JSONParser.getContentOfFirstPost(data);
-                        HTMLBuilder.StringtoHTML(test);
-
-                        testView.setText(test);
-
-                        mWebView.loadData(test,
+                        String content = JSONParser.getContentOfFirstPost(data);
+                        HTMLBuilder.StringtoHTML(content);
+                        mWebView.loadData(content,
                                 "text/html", "UTF-8");
-
                     }
 
                     @Override
                     public void onError(String message) {
 
-                        testView.setText(message);
+                        Toast toast = Toast.makeText(mContext, message, Toast.LENGTH_LONG);
+                        toast.show();
                     }
                 });
 
