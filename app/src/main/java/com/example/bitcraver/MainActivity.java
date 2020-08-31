@@ -47,22 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                mRequestHandler.initiateRequest(new ResponseCallback() {
-                    @Override
-                    public void onSuccess(String data) {
-                        String content = JSONParser.getContentOfFirstPost(data);
-                        HTMLBuilder.StringtoHTML(content);
-                        mWebView.loadData(content,
-                                "text/html", "UTF-8");
-                    }
-
-                    @Override
-                    public void onError(String message) {
-
-                        Toast toast = Toast.makeText(mContext, message, Toast.LENGTH_LONG);
-                        toast.show();
-                    }
-                });
+                loadContent();
 
             }
         });
@@ -98,6 +83,28 @@ public class MainActivity extends AppCompatActivity {
                 if (progress == 100) {
                     progressDialog.dismiss();
                 }
+            }
+        });
+
+    }
+
+
+    private void loadContent() {
+
+        mRequestHandler.initiateRequest(new ResponseCallback() {
+            @Override
+            public void onSuccess(String data) {
+                String content = JSONParser.getContentOfFirstPost(data);
+                HTMLBuilder.StringtoHTML(content);
+                mWebView.loadData(content,
+                        "text/html", "UTF-8");
+            }
+
+            @Override
+            public void onError(String message) {
+
+                Toast toast = Toast.makeText(mContext, message, Toast.LENGTH_LONG);
+                toast.show();
             }
         });
 
