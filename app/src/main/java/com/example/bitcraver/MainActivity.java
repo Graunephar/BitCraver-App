@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         web_view.getSettings().setJavaScriptEnabled(true);
         web_view.getSettings().setGeolocationEnabled(true);
         web_view.setSoundEffectsEnabled(true);
+
         web_view.loadData("",
                 "text/html", "UTF-8");
 
