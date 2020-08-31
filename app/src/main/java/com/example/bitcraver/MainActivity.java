@@ -15,6 +15,9 @@ import com.example.bitcraver.network.HTMLBuilder;
 import com.example.bitcraver.network.HttpRequestHandler;
 import com.example.bitcraver.network.JSONParser;
 import com.example.bitcraver.network.ResponseCallback;
+import com.izikode.izilib.veinview.VeinView;
+import com.izikode.izilib.veinview.VeinViewClient;
+import com.izikode.izilib.veinview.VeinViewInjector;
 
 import java.io.InputStream;
 
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private HttpRequestHandler mRequestHandler;
 
-    private WebView mWebView;
+    private VeinView mWebView;
 
 
     @Override
@@ -65,14 +68,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mWebView.setWebViewClient(new WebViewClient() {
-
-            public void onPageFinished(WebView view, String url) {
-
-
-
-            }
-        });
+       mWebView.setVeinViewClient(new VeinViewClient() {
+           @Override
+           public void onReadyToInject(VeinViewInjector veinViewInjector, String s) {
+               getInjector().injectCSS(R.raw.style);
+           }
+       });
 
 
         // Initiate webview
@@ -101,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
+    }
 
 }

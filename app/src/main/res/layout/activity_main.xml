@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <WebView
+    <com.izikode.izilib.veinview.VeinView
         android:id="@+id/content_view"
         android:layout_width="315dp"
         android:layout_height="466dp"
