@@ -33,7 +33,7 @@ public class HttpRequestHandler {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                callback.onError("That didn't work!"); //Worst errorhandlign ever
+                callback.onError(error.getMessage()); 
             }
         });
 
