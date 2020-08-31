@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         mRequestHandler = new HttpRequestHandler(this);
 
+        getSupportActionBar().setTitle(R.string.action_bar_text);  // provide compatibility to all the versions
+
 
         updatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
