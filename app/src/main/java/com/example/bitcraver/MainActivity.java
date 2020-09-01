@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 swipe_refresh_layout.setRefreshing(false);
             }
         });
-        
+
        mWebView.setVeinViewClient(new VeinViewClient() {
            @Override
            public void onReadyToInject(VeinViewInjector veinViewInjector, String s) {
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         mWebView.requestFocus();
         mWebView.getSettings().setLightTouchEnabled(true);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.getSettings().setGeolocationEnabled(true);
         mWebView.setSoundEffectsEnabled(true);
+        mWebView.getSettings().setDefaultTextEncodingName("utf-8");
 
 
         mWebView.loadData("",
@@ -96,14 +96,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(String data) {
                 String content = JSONParser.getContentOfFirstPost(data);
-                HTMLBuilder.StringtoHTML(content);
-                mWebView.loadData(content,
-                        "text/html", "UTF-8");
+                String html = HTMLBuilder.StringtoHTML(content);
+                mWebView.loadDataWithBaseURL(null, content, "text/html", "UTF-8", null);
+
             }
 
             @Override
             public void onError(String message) {
-
                 Toast toast = Toast.makeText(mContext, message, Toast.LENGTH_LONG);
                 toast.show();
             }

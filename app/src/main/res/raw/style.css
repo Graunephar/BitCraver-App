@@ -1,11 +1,24 @@
 body {
-
+padding-left: 10px;
+padding-left: 10px;
 }
 
 
-img {
-  margin-left: 0px;
+iframe {
+  margin-left: -15px;
   margin-right: 0px;
-  width: 100%;
+  width: 105%;
   height: auto;
+}
+
+img {
+  margin-left: -15px;
+  margin-right: 0px;
+  width: 105%;
+  height: auto;
+}
+
+.content-wrapper {
+    background-color: #90C;
+
 }

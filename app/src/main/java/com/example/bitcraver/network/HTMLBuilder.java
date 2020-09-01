@@ -1,17 +1,23 @@
 package com.example.bitcraver.network;
 
 import android.text.Html;
-import android.text.Spanned;
-
-import java.io.InputStream;
 
 public class HTMLBuilder {
 
 
-    public static Spanned StringtoHTML(String source) {
+    public static String StringtoHTML(String content) {
 
-        return Html.fromHtml(source);
-
+        return "<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "<meta charset=\"utf-8\"/>" +
+                "</head>"+
+                "<body>" +
+                "<div class='content-wrapper'>" +
+                    content +
+                "</div>" +
+                "</body>" +
+                "</html>";
     }
 
 }
