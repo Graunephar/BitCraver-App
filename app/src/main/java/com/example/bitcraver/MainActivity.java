@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(String data) {
                 String content = JSONParser.getContentOfFirstPost(data);
                 String html = HTMLBuilder.StringtoHTML(content);
-                mWebView.loadDataWithBaseURL(null, content, "text/html", "UTF-8", null);
+                mWebView.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null);
 
             }
 
