@@ -5,20 +5,17 @@ padding-left: 10px;
 
 
 iframe {
-  margin-left: -15px;
-  margin-right: 0px;
-  width: 105%;
+  width: 100%;
   height: auto;
 }
 
 img {
-  margin-left: -15px;
-  margin-right: 0px;
-  width: 105%;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
   height: auto;
 }
 
 .content-wrapper {
-    background-color: #90C;
-
+    overflow: hidden;
 }
