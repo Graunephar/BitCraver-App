@@ -1,6 +1,7 @@
 package com.example.bitcraver;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -8,9 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bitcraver.network.HTMLBuilder;
@@ -20,8 +19,6 @@ import com.example.bitcraver.network.ResponseCallback;
 import com.izikode.izilib.veinview.VeinView;
 import com.izikode.izilib.veinview.VeinViewClient;
 import com.izikode.izilib.veinview.VeinViewInjector;
-
-import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,15 +34,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button updatebutton = findViewById(R.id.refresh_button);
+        Button update_button = findViewById(R.id.refresh_button);
         mWebView = findViewById(R.id.content_view);
+        final SwipeRefreshLayout swipe_refresh_layout = findViewById(R.id.swipe_to_refresh);
 
         mRequestHandler = new HttpRequestHandler(this);
 
         getSupportActionBar().setTitle(R.string.action_bar_text);  // provide compatibility to all the versions
 
 
-        updatebutton.setOnClickListener(new View.OnClickListener() {
+        swipe_refresh_layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadContent();
+                swipe_refresh_layout.setRefreshing(false);
+            }
+        });
+
+        update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
