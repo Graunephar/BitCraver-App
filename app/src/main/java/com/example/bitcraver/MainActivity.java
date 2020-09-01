@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button update_button = findViewById(R.id.refresh_button);
         mWebView = findViewById(R.id.content_view);
         final SwipeRefreshLayout swipe_refresh_layout = findViewById(R.id.swipe_to_refresh);
 
@@ -50,16 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 swipe_refresh_layout.setRefreshing(false);
             }
         });
-
-        update_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                loadContent();
-
-            }
-        });
-
+        
        mWebView.setVeinViewClient(new VeinViewClient() {
            @Override
            public void onReadyToInject(VeinViewInjector veinViewInjector, String s) {
@@ -79,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setGeolocationEnabled(true);
         mWebView.setSoundEffectsEnabled(true);
+
 
         mWebView.loadData("",
                 "text/html", "UTF-8");
