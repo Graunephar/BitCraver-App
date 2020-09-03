@@ -5,6 +5,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity{
        mWebView.setVeinViewClient(new VeinViewClient() {
            @Override
            public void onReadyToInject(VeinViewInjector veinViewInjector, String s) {
+               getInjector().injectCSS(R.raw.bootstrap);
                getInjector().injectCSS(R.raw.style);
            }
        });
@@ -119,7 +121,8 @@ public class MainActivity extends AppCompatActivity{
     public boolean onKeyLongPress( int keyCode, KeyEvent event ) {
         if( keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ) {
             //Handle what you want in long press.
-            Toast.makeText(this, "Long press Down", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, CrashingActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onKeyLongPress( keyCode, event );

@@ -13,3 +13,12 @@ iframe, video, img {
 .content-wrapper {
     overflow: hidden;
 }
+
+form {
+    font-size: 1.5em;
+}
+
+input {
+    width: 20px;
+    height: 20px;
+}
