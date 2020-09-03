@@ -110,7 +110,12 @@ public class MainActivity extends AppCompatActivity{
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-            Toast.makeText(this, "Press Down", Toast.LENGTH_SHORT).show();
+
+            event.startTracking();
+            return true;
+        }
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+
             event.startTracking();
             return true;
         }
@@ -120,9 +125,12 @@ public class MainActivity extends AppCompatActivity{
     @Override
     public boolean onKeyLongPress( int keyCode, KeyEvent event ) {
         if( keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ) {
-            //Handle what you want in long press.
             Intent intent = new Intent(this, CrashingActivity.class);
             startActivity(intent);
+            return true;
+        }
+        if( keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ) {
+            //What goes here? 
             return true;
         }
         return super.onKeyLongPress( keyCode, event );
