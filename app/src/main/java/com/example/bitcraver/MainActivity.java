@@ -6,6 +6,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -20,7 +21,7 @@ import com.izikode.izilib.veinview.VeinView;
 import com.izikode.izilib.veinview.VeinViewClient;
 import com.izikode.izilib.veinview.VeinViewInjector;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
 
     private HttpRequestHandler mRequestHandler;
@@ -73,11 +74,14 @@ public class MainActivity extends AppCompatActivity {
 
         mWebView.loadData("",
                 "text/html", "UTF-8");
-        
+
 
         loadContent();
 
     }
+
+
+
 
 
     private void loadContent() {
@@ -98,6 +102,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            Toast.makeText(this, "Press Down", Toast.LENGTH_SHORT).show();
+            event.startTracking();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyLongPress( int keyCode, KeyEvent event ) {
+        if( keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ) {
+            //Handle what you want in long press.
+            Toast.makeText(this, "Long press Down", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onKeyLongPress( keyCode, event );
     }
 
 }
