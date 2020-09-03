@@ -73,17 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         mWebView.loadData("",
                 "text/html", "UTF-8");
-
-        mWebView.setWebChromeClient(new WebChromeClient() {
-            public void onProgressChanged(WebView view, int progress) {
-                if (progress < 100) {
-                    progressDialog.show();
-                }
-                if (progress == 100) {
-                    progressDialog.dismiss();
-                }
-            }
-        });
+        
 
         loadContent();
 

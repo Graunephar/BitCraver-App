@@ -3,13 +3,7 @@ padding-left: 10px;
 padding-left: 10px;
 }
 
-
-iframe {
-  width: 100%;
-  height: auto;
-}
-
-img {
+iframe, video, img {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
