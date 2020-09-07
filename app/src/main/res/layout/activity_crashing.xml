@@ -8,35 +8,38 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="273dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/ProgressBar01"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[4]" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="413dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="21dp"
         android:text="Ups, noget er gået galt"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="199dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="250dp"
         android:text="Appen er desværre crashet. Prøv igen senere."
         android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -46,11 +49,11 @@
         android:id="@+id/ProgressBar01"
         android:layout_width="87dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="77dp"
+        android:layout_marginBottom="76dp"
         android:indeterminateDrawable="@drawable/progress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
