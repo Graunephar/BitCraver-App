@@ -19,17 +19,12 @@ public class CrashingActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
             finish();
-
             return true;
         }
 
         if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-
             return true;
         }
-
-
-
         return super.onKeyDown(keyCode, event);
     }
 
@@ -37,7 +32,6 @@ public class CrashingActivity extends AppCompatActivity {
     public boolean onKeyLongPress( int keyCode, KeyEvent event ) {
         if( keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ) {
             //Handle what you want in long press.
-
             return true;
         }
         return super.onKeyLongPress( keyCode, event );
