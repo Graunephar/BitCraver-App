@@ -1,4 +1,4 @@
-package com.example.bitcraver;
+package com.graunephar.bitcraver;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
+
+import com.example.bitcraver.R;
 
 public class CrashingActivity extends AppCompatActivity {
 

@@ -1,6 +1,6 @@
-package com.example.bitcraver.data;
+package com.graunephar.bitcraver.data;
 
-import com.example.bitcraver.data.model.LoggedInUser;
+import com.graunephar.bitcraver.data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

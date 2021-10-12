@@ -5,10 +5,17 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in">Log Ind</string>
+    <string name="action_sign_in_short">Log Ind</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="welcome_message">"Velkommen tilbage"</string>
+    <string name="wrong_password_message">Forkert password</string>
+    <string name="attempts_left">forsøg tilbage</string>
+    <string name="logged_in_message">du er allerede logged ind</string>
+    <string name="button_continue">Fortsæt</string>
+    <string name="reset_pass">Nulstil Password</string>
+    <string name="no_more_attempts">Du har ikke flere forsøg tilbage</string>
 </resources>

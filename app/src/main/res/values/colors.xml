@@ -3,4 +3,7 @@
     <color name="colorPrimary">#202020</color>
     <color name="colorPrimaryDark">#2D4034</color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="button_color">#164E74</color>
+    <color name="button_disable">#AFAFAF</color>
+    <color name="red_warning">#FF1100</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.bitcraver;
+package com.graunephar.bitcraver;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -19,10 +19,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.bitcraver.network.HTMLBuilder;
-import com.example.bitcraver.network.HttpRequestHandler;
-import com.example.bitcraver.network.JSONParser;
-import com.example.bitcraver.network.ResponseCallback;
+import com.example.bitcraver.R;
+import com.graunephar.bitcraver.constants.AppConstants;
+import com.graunephar.bitcraver.constants.UserConstant;
+import com.graunephar.bitcraver.network.HTMLBuilder;
+import com.graunephar.bitcraver.network.HttpRequestHandler;
+import com.graunephar.bitcraver.network.JSONParser;
+import com.graunephar.bitcraver.network.ResponseCallback;
 import com.izikode.izilib.veinview.VeinView;
 import com.izikode.izilib.veinview.VeinViewClient;
 import com.izikode.izilib.veinview.VeinViewInjector;
@@ -52,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
 
             Toast.makeText(mContext, "USB RECEIVED started", Toast.LENGTH_LONG).show();
-
             String action = intent.getAction();
             if (ACTION_USB_PERMISSION.equals(action)) {
                 synchronized (this) {
@@ -105,6 +107,14 @@ public class MainActivity extends AppCompatActivity {
         loadContent();
         tryReloadContent();
         registerUSBIntentsAndFields();
+
+        startLoginActivity();
+    }
+
+    private void startLoginActivity() {
+        Intent startIntent = new Intent(this, LoginActivity.class);
+        startIntent.putExtra(AppConstants.USER_PARAM, AppConstants.CURRENT_USER);
+        startActivity(startIntent);
     }
 
     @Override
@@ -116,11 +126,9 @@ public class MainActivity extends AppCompatActivity {
         String action = intent.getAction();
 
         if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action)) {
-            Toast.makeText(this, "Started from USB device", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Tvinger app til at åbne", Toast.LENGTH_LONG).show();
             //do something
-            //Intent startIntent = new Intent(this, LoginActivity.class);
-            //startIntent.putExtra(EXTRA_MESSAGE, message);
-            //startActivity(startIntent);
+            startLoginActivity();
         }
     }
 

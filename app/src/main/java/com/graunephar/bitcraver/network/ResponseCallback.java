@@ -1,4 +1,4 @@
-package com.example.bitcraver.network;
+package com.graunephar.bitcraver.network;
 
 public interface ResponseCallback {
 

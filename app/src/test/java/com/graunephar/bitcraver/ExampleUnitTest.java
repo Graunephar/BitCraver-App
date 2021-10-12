@@ -1,4 +1,4 @@
-package com.example.bitcraver;
+package com.graunephar.bitcraver;
 
 import org.junit.Test;
 

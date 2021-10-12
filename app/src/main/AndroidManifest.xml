@@ -15,24 +15,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="true"
-            android:label="@string/title_activity_login" />
+            android:name="com.graunephar.bitcraver.HackingActivity"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name="com.graunephar.bitcraver.LoginActivity"
+            android:screenOrientation="portrait"
+            android:exported="true" />
 
         <uses-library android:name="com.android.future.usb.accessory" />
 
         <activity
-            android:name=".CrashingActivity"
+            android:name="com.graunephar.bitcraver.CrashingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service
-            android:name=".services.UpdateService"
+            android:name="com.graunephar.bitcraver.services.UpdateService"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.graunephar.bitcraver.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

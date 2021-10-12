@@ -1,4 +1,4 @@
-package com.example.bitcraver.data.model;
+package com.graunephar.bitcraver.data.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

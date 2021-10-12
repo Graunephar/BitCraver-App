@@ -1,4 +1,4 @@
-package com.example.bitcraver.services;
+package com.graunephar.bitcraver.services;
 
 import android.app.Service;
 import android.content.Intent;
