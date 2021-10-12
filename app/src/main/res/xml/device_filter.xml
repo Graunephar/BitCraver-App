@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <usb-device vendor-id="24e0" product-id="007e" /> <!-- Yocto relay in linux language -->
+    <usb-device vendor-id="9440" product-id="1003" /><!-- Yocto relay in android language -->
+</resources>

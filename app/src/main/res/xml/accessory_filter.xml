@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Get info by  ioreg -p IOUSB -l -b -->
+<!-- THge values is  "USB Vendor Name" and "USB Product Name" -->
+
+<resources>
+
+    <usb-accessory
+        manufacturer="Imation"
+        model="Nano Pro"
+        version="1.0" />
+
+</resources>
