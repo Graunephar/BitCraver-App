@@ -140,10 +140,17 @@ public class LoginActivity extends AppCompatActivity {
               @Override
               public void onClick(View v) {
                   Toast.makeText(mActivity, "HEJ", Toast.LENGTH_LONG).show();
+                  launchSecurityQuestion();
               }
           });
         }
 
+    }
+
+    private void launchSecurityQuestion() {
+        Intent startIntent = new Intent(mActivity, SecurityQuestionsActivity.class);
+        startIntent.putExtra(AppConstants.USER_PARAM, mUser);
+        startActivity(startIntent);
     }
 
     private void isDaniel() {
@@ -152,7 +159,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void launchHack() {
         Intent startIntent = new Intent(mActivity, HackingActivity.class);
-        //startIntent.putExtra(EXTRA_MESSAGE, message);
+        startIntent.putExtra(AppConstants.USER_PARAM, mUser);
         startActivity(startIntent);
     }
 }

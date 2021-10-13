@@ -15,13 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.graunephar.bitcraver.HackingActivity"
-            android:screenOrientation="portrait"
+            android:name="com.graunephar.bitcraver.SecurityQuestionsActivity"
             android:exported="true" />
         <activity
+            android:name="com.graunephar.bitcraver.HackingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.graunephar.bitcraver.LoginActivity"
-            android:screenOrientation="portrait"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
 
         <uses-library android:name="com.android.future.usb.accessory" />
 
