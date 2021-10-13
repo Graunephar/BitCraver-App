@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mPasswordField.setText("");
                 decideWhatTODoOnClick();
 
             }
@@ -135,16 +136,20 @@ public class LoginActivity extends AppCompatActivity {
             mTextView.setTextColor(ContextCompat.getColor(mActivity, R.color.red_warning));
         } else {
           mButton.setText(R.string.reset_pass);
+            enableButton();
+            mPasswordField.setVisibility(View.GONE);
             mTextView.setText(getString(R.string.no_more_attempts));
             mButton.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                  Toast.makeText(mActivity, "HEJ", Toast.LENGTH_LONG).show();
                   launchSecurityQuestion();
               }
           });
         }
 
+    }
+    private void isDaniel() {
+        launchHack();
     }
 
     private void launchSecurityQuestion() {
@@ -153,9 +158,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(startIntent);
     }
 
-    private void isDaniel() {
-        launchHack();
-    }
+
 
     private void launchHack() {
         Intent startIntent = new Intent(mActivity, HackingActivity.class);
