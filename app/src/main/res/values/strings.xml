@@ -18,4 +18,10 @@
     <string name="button_continue">Fortsæt</string>
     <string name="reset_pass">Nulstil Password</string>
     <string name="no_more_attempts">Du har ikke flere forsøg tilbage</string>
+    <string name="tobias_question_one">Hvad hed din bedste ven i Børnehaven?</string>
+    <string name="tobias_question_two">Hvad hed din første kat?</string>
+    <string name="tobias_question_three">Hvad er den bedste og flotteste bil?</string>
+    <string name="security_quest_error">Forkert svar</string>
+    <string name="action_reset_short">Log ind med sikkerhedsspørgsmål</string>
+    <string name="sec_hint">Indsæt svar på spørgsmål</string>
 </resources>

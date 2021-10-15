@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private UsbAccessory accessory;
     private UsbManager mUsbManager;
     private PendingIntent mPermissionIntent;
+    private PreferenceSaver mPreferenceSaver;
 
     private static final String ACTION_USB_PERMISSION =
             "com.android.example.USB_PERMISSION";
@@ -78,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mPreferenceSaver = new PreferenceSaver(this);
+
         mWebView = findViewById(R.id.content_view);
         final SwipeRefreshLayout swipe_refresh_layout = findViewById(R.id.swipe_to_refresh);
 
@@ -108,7 +111,21 @@ public class MainActivity extends AppCompatActivity {
         tryReloadContent();
         registerUSBIntentsAndFields();
 
-        startLoginActivity();
+        checkIfHacked();
+    }
+
+    private void checkIfHacked() {
+        if(mPreferenceSaver.hasAppBeenHacked()) {
+            startCrashActivity();
+            finish(); //im out
+        }
+    }
+
+
+    private void testStartHackActivity() {
+        Intent startIntent = new Intent(this, HackingActivity.class);
+        startIntent.putExtra(AppConstants.USER_PARAM, AppConstants.CURRENT_USER);
+        startActivity(startIntent);
     }
 
     private void startLoginActivity() {
@@ -121,14 +138,20 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
+        checkIfHacked();
+
         Intent intent = getIntent();
         Log.d(TAG, "intent: " + intent);
         String action = intent.getAction();
 
-        if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action)) {
+
+
+        if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action) && !mPreferenceSaver.hasAppBeenHacked()) {
             Toast.makeText(this, "Tvinger app til at åbne", Toast.LENGTH_LONG).show();
             //do something
             startLoginActivity();
+        } else if(mPreferenceSaver.hasAppBeenHacked()) {
+            startCrashActivity();
         }
     }
 
@@ -244,8 +267,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onKeyLongPress ( int keyCode, KeyEvent event){
             if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-                Intent intent = new Intent(this, CrashingActivity.class);
-                startActivity(intent);
+                startCrashActivity();
                 return true;
             }
             if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
@@ -255,4 +277,9 @@ public class MainActivity extends AppCompatActivity {
             return super.onKeyLongPress(keyCode, event);
         }
 
+    private void startCrashActivity() {
+        Intent intent = new Intent(this, CrashingActivity.class);
+        startActivity(intent);
     }
+
+}

@@ -148,6 +148,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+
     private void isDaniel() {
         launchHack();
     }
@@ -156,6 +157,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent startIntent = new Intent(mActivity, SecurityQuestionsActivity.class);
         startIntent.putExtra(AppConstants.USER_PARAM, mUser);
         startActivity(startIntent);
+        finish();
     }
 
 
@@ -164,5 +166,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent startIntent = new Intent(mActivity, HackingActivity.class);
         startIntent.putExtra(AppConstants.USER_PARAM, mUser);
         startActivity(startIntent);
+        finish();
     }
 }
